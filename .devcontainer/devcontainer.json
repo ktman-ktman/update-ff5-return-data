@@ -1,0 +1,29 @@
+{
+    "name": "update-ff5-return-data",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".",
+        "args": {
+            "VARIANT": "3.11.4-bullseye",
+            "USERNAME": "vscode",
+            "USER_UID": "1000",
+            "USER_GID": "1000",
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-l"
+                        ]
+                    }
+                }
+            },
+        },
+    },
+    "remoteUser": "vscode",
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+}
